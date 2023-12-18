@@ -162,3 +162,5 @@ cython_debug/
 # Ignore source xlsx file
 *.xlsx
 *.tsv
+*.txt
+!requirements.txt
