@@ -1,6 +1,15 @@
+import argparse
 import pandas as pd
 
-df = pd.read_csv("DQC_v2.tsv", delimiter="\t", encoding="cp1252")
+parser = argparse.ArgumentParser(
+    description='juliette-aspect-dataset - Converting Juliette\'s wonky Excel file to clean TSV')
+parser.add_argument('tsv_path', type=str,
+                    help='Path to the TSV file containing the dataset')
+parser.add_argument('--output_file', type=str, default="juliette_table",
+                    help='Name of the output file')
+args = parser.parse_args()
+
+df = pd.read_csv(args.tsv_path, delimiter="\t", encoding="cp1252")
 
 output_rows = []
 
@@ -62,5 +71,5 @@ output_df = pd.DataFrame.from_records(output_rows)
 output_df.fillna('', inplace=True)
 output_df.head()
 
-output_df.to_csv("juliette_table.tsv", sep="\t", index=None)
-output_df.to_excel("juliette_table.xlsx")
+output_df.to_csv(f"{args.output_file}.tsv", sep="\t", index=None)
+output_df.to_excel(f"{args.output_file}.xlsx")
