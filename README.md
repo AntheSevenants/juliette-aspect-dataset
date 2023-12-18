@@ -21,6 +21,15 @@ I used Python with Pandas to iterate over each row in the source dataset. The sc
 
 ## How to use
 
+### Windows
+
+1. Download `juliette-convert.exe` from the Releases (sidebar on the right)
+    - If you are using a GHUM managed KU Leuven computer, put the exe in `C:\Workdir\MyApps\`, else the program will be blocked by a group policy
+2. Drop a TSV/TXT file (as long as the contents are tab-delimited, it's fine) on `juliette-convert.exe`. You should see the output TSV and XLSX files appear in the same directory
+    - You can also use the command line, using the same arguments as below
+
+### From source (macOS/Linux)
+
 1. Install dependencies (`requirements.txt`)
-2. Place the original dataset as TSV in the repository root (filename `DQC_v2.tsv`)
-3. Run the cells from `convert.ipynb`
+2. Place the original dataset as TSV in the repository root
+3. Run `python3 juliette-convert.py <filename>` in the repository root
